@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class SwingPracticeHard {
     private JFrame mainFrame;
-    private int WIDTH=800;
+    private int WIDTH=1200;
     private int HEIGHT=700;
 
 
@@ -19,7 +19,7 @@ public class SwingPracticeHard {
     private void prepareGUI() {
         mainFrame = new JFrame("Hard");
         mainFrame.setSize(WIDTH, HEIGHT);
-        mainFrame.setLayout(new BorderLayout());
+        mainFrame.setLayout(new GridLayout(2, 1));
 
         JPanel gridPanels = new JPanel();
         gridPanels.setLayout(new GridLayout(1,2));
@@ -81,8 +81,17 @@ public class SwingPracticeHard {
 
         gridPanels.add(leftGrid);
         gridPanels.add(rightGrid);
+
+        JTextArea textArea = new JTextArea();
+
+        JPanel textAreaNumberRow = new JPanel();
+        textAreaNumberRow.setLayout(new BorderLayout());
+
+        textAreaNumberRow.add(textArea);
+        textAreaNumberRow.add(numberRow, BorderLayout.SOUTH);
+
         mainFrame.add(gridPanels);
-        mainFrame.add(numberRow, BorderLayout.SOUTH);
+        mainFrame.add(textAreaNumberRow);
         mainFrame.setVisible(true);
     }
 
